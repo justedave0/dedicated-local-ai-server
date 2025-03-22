@@ -11,6 +11,7 @@
 *     sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 *     sudo apt update && sudo apt upgrade
 *     sudo reboot
+  
 ## 3. Install docker
   see https://linuxiac.com/how-to-install-docker-on-ubuntu-24-04-lts/
 *     sudo apt update
@@ -22,14 +23,21 @@
 *     sudo docker run hello-world
   Enabling Non-root Users to Run Docker Commands
 *     sudo usermod -aG docker ${USER}
-## 4. Install Cuda 
+*    
+## 4. Install Nvidia GPU drivers 
+*     sudo ubuntu-drivers autoinstall
+*     sudo reboot
+*     sudo nvidia-ctk runtime configure --runtime=docker
+*     sudo systemctl restart docker
+
+## 5. Install Cuda & toolkits
 *     sudo apt-key del 7fa2af80
 *     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
 *     sudo dpkg -i cuda-keyring_1.1-1_all.deb
 *     sudo apt update
 *     sudo apt install cuda-toolkit nvidia-cuda-toolkit -y
   
-## 5. Install Nvidia-toolkit
+## 6. Install Nvidia &toolkit
     see https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 *     curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
