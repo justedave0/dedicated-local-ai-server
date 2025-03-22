@@ -1,6 +1,7 @@
 ai.justedave.tv {
     tls {
         protocols tls1.2 tls1.3
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
     }
     reverse_proxy open-webui:8080
 } 
