@@ -18,8 +18,8 @@ services:
       - ollama
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    networks:
-      - ollama-net
+    #networks:
+    #  - ollama-net
     restart: unless-stopped
 
   ollama:
@@ -44,8 +44,8 @@ services:
       - models:/models
     ports:
       - "11434:11434"
-    networks:
-      - ollama-net
+    #networks:
+    #  - ollama-net
     restart: unless-stopped
 
 volumes:
