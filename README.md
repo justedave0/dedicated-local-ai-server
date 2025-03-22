@@ -14,7 +14,7 @@
 ## 3. Install docker
   see https://linuxiac.com/how-to-install-docker-on-ubuntu-24-04-lts/
 *     sudo apt update
-*     sudo apt install apt-transport-https curl
+*     sudo apt install apt-transport-https curl -y
 *     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 *     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 *     sudo apt update
@@ -22,4 +22,9 @@
 *     sudo docker run hello-world
   Enabling Non-root Users to Run Docker Commands
 *     sudo usermod -aG docker ${USER}
-## 4.  
+## 4. Install Cuda 
+*     sudo apt-key del 7fa2af80
+*     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+*     sudo dpkg -i cuda-keyring_1.1-1_all.deb
+*     sudo apt update
+*     sudo apt install cuda-toolkit nvidia-cuda-toolkit -y
