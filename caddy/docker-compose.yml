@@ -15,11 +15,4 @@ services:
 
 networks:
   caddy:
-    name: caddy
-    external: true
-
-volumes:
-  caddy_data:
-    driver: local
-  caddy_config:
-    driver: local 
+    name: caddy 
