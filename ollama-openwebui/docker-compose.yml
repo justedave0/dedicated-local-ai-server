@@ -25,7 +25,6 @@ services:
   ollama:
     container_name: ollama
     image: ollama/ollama:latest
-    runtime: nvidia
     environment:
       - OLLAMA_CONTEXT_LENGTH=8192  
       - NVIDIA_VISIBLE_DEVICES=all
