@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   caddy:
     image: caddy:latest
@@ -14,11 +12,11 @@ services:
       - caddy_config:/config
     networks:
       - caddy
-    user: 1000:1000
 
 networks:
   caddy:
-    external: false
+    name: caddy
+    external: true
 
 volumes:
   caddy_data:

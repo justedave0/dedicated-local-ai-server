@@ -1,3 +1,6 @@
 ai.justedave.tv {
+    tls {
+        protocols tls1.2 tls1.3
+    }
     reverse_proxy open-webui:8080
 } 
