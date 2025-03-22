@@ -1,0 +1,25 @@
+services:
+    ollama:
+        image: ollama/ollama:latest
+#        ports:
+#            - 11434:11434
+        volumes:
+            - ./ollama/models:/root/.ollama
+        container_name: ollama
+        pull_policy: always
+        tty: true
+        restart: always
+    open-webui:
+        volumes:
+            - ./data:/app/backend/data
+        environment:
+            - 'OLLAMA_BASE_URL=http://ollama:11434'
+        container_name: open-webui
+        restart: always
+        image: ghcr.io/open-webui/open-webui:main
+        ports:
+            - 127.0.0.1:8080:8080
+networks:
+  default:
+    external:
+      name: caddy
