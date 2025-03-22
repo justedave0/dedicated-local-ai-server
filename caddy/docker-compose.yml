@@ -11,6 +11,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./data:/data
       - ./config:/config
     networks:
@@ -18,4 +19,5 @@ services:
 
 networks:
   caddy:
-    name: caddy 
+    name: caddy
+    external: false 
